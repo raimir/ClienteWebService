@@ -70,11 +70,13 @@ public class ContatoController extends HttpServlet {
         
         ServiceHttpURLConnectionExample serviceConnection = new ServiceHttpURLConnectionExample();
         serviceConnection.setUrl("http://127.0.0.1:8000/webservice/contatos/inserir");
-        serviceConnection.setUrlParameters(USER_AGENT);
+        serviceConnection.setUrlParameters(params);
         
         String jsonTxt = serviceConnection.sendPost();
-        request.setAttribute("jsonTxt", jsonTxt);
-        RequestDispatcher rd = request.getRequestDispatcher("/inserir.jsp");
-        rd.forward(request,response);
+        if ( !jsonTxt.equals("null") ) {
+            request.setAttribute("jsonTxt", jsonTxt);
+            RequestDispatcher rd = request.getRequestDispatcher("/success.jsp");
+            rd.forward(request,response);
+        }
     }
 }

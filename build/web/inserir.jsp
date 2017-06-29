@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="r-form-1-bottom">
-                            <form role="form" action="/contatos/inserir" method="post">
+                            <form role="form" action="contatos/inserir" method="post">
 
                             <div class="form-body">
                                 <div class="form-group form-md-line-input">

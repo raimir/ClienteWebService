@@ -34,21 +34,21 @@ public class ContatoController extends HttpServlet {
     private static final int HTTP_COD_SUCESSO = 200;
     private final String USER_AGENT = "Mozilla/5.0";
 
+//    @Override
+//    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//            ServiceHttpURLConnectionExample http = new ServiceHttpURLConnectionExample();
+//        response.setContentType("text/html;charset=UTF-8");
+//        
+//        RequestDispatcher rd = request.getRequestDispatcher("/inserir.jsp");
+//        rd.forward(request,response);
+//    }
+
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            ServiceHttpURLConnectionExample http = new ServiceHttpURLConnectionExample();
-        response.setContentType("text/html;charset=UTF-8");
-        
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        response.sendRedirect("inserir.jsp");
         RequestDispatcher rd = request.getRequestDispatcher("/inserir.jsp");
         rd.forward(request,response);
     }
-
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        //response.sendRedirect("inserir.jsp");
-////        RequestDispatcher rd = request.getRequestDispatcher("inserir.jsp");
-////        rd.forward(request,response);
-//    }
         
 //    @Override
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +63,6 @@ public class ContatoController extends HttpServlet {
 //        out.println("telefone: " + telefone);
 //        out.println("email: " + email);
 //        response.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = response.getWriter();
 //        
 //        ServiceHttpURLConnectionExample serviceConnection = new ServiceHttpURLConnectionExample();
 //        

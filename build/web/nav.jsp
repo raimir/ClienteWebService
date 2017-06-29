@@ -12,9 +12,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="top-navbar-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../">Inicío</a></li>
-                <li><a href="./contatos/inserir">Inserir</a></li>
-                <li><a href="./contatos">Consultar</a></li>
+                <li><a href="${pageContext.request.contextPath}/">Inicío</a></li>
+                <li><a href="${pageContext.request.contextPath}/contatos/inserir">Inserir</a></li>
+                <li><a href="${pageContext.request.contextPath}/contatos">Consultar</a></li>
             </ul>
         </div>
     </div>

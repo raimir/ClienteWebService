@@ -28,7 +28,6 @@ import org.json.JSONObject;
  *
  * @author Jonatan
  */
-@WebServlet(name = "agenda-controller", urlPatterns = {"/contatos"})
 public class AgendaController extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

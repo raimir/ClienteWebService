@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jonatan
  */
-@WebServlet("/")
 public class HomeController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)

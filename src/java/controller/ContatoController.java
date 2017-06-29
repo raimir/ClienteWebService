@@ -30,12 +30,11 @@ import org.json.JSONObject;
  *
  * @author Jonatan
  */
-@WebServlet(name = "contato-inserir", urlPatterns = {"contatos/inserir"})
 public class ContatoController extends HttpServlet {
     private static final int HTTP_COD_SUCESSO = 200;
     private final String USER_AGENT = "Mozilla/5.0";
 
-//    @Override
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             ServiceHttpURLConnectionExample http = new ServiceHttpURLConnectionExample();
         response.setContentType("text/html;charset=UTF-8");
@@ -51,29 +50,18 @@ public class ContatoController extends HttpServlet {
 ////        rd.forward(request,response);
 //    }
         
-    
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-   
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        PrintWriter out = response.getWriter();
-        String nome = request.getParameter("nome");
-        String telefone = request.getParameter("telefone");
-        String email = request.getParameter("email");
-        
-        out.println("nome: " + nome);
-        out.println("telefone: " + telefone);
-        out.println("email: " + email);
+//    @Override
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        
+//        PrintWriter out = response.getWriter();
+//        String nome = request.getParameter("nome");
+//        String telefone = request.getParameter("telefone");
+//        String email = request.getParameter("email");
+//        
+//        out.println("nome: " + nome);
+//        out.println("telefone: " + telefone);
+//        out.println("email: " + email);
 //        response.setContentType("text/html;charset=UTF-8");
 //        PrintWriter out = response.getWriter();
 //        
@@ -83,5 +71,5 @@ public class ContatoController extends HttpServlet {
 //        request.setAttribute("jsonTxt", jsonTxt);
 //        RequestDispatcher rd = request.getRequestDispatcher("/inserir.jsp");
 //        rd.forward(request,response);
-    }
+//    }
 }

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -42,7 +43,19 @@ public class ServiceHttpURLConnectionExample {
     public void setUrlParameters(String urlParameters) {
         this.urlParameters = urlParameters;
     }
-
+    
+    public void setUrlParameters(Map<String,String> urlParameters) {
+        String params= "";
+        for (Map.Entry<String, String> entry : urlParameters.entrySet())
+        {
+             params += entry.getKey() + "=" + entry.getValue() + "&";
+        }
+        if( !params.equals("") ) {
+            params = params.substring(0, params.length()-1);
+        }
+        this.urlParameters = params;
+    }
+    
     // HTTP GET request
     public String sendGet() throws IOException {
 
@@ -104,8 +117,8 @@ public class ServiceHttpURLConnectionExample {
         con.setRequestProperty("User-Agent", USER_AGENT);
         con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 //        con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-       
-        urlParameters = "nome=jonatan&telefone=1234&email=abc@gmail.com";
+      
+//        urlParameters = "nome=jonatan&telefone=1234&email=abc@gmail.com";
 
         // Send post request
         con.setDoOutput(true);

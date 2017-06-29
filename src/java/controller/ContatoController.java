@@ -13,8 +13,10 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -50,25 +52,29 @@ public class ContatoController extends HttpServlet {
         rd.forward(request,response);
     }
         
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        
-//        PrintWriter out = response.getWriter();
-//        String nome = request.getParameter("nome");
-//        String telefone = request.getParameter("telefone");
-//        String email = request.getParameter("email");
-//        
-//        out.println("nome: " + nome);
-//        out.println("telefone: " + telefone);
-//        out.println("email: " + email);
-//        response.setContentType("text/html;charset=UTF-8");
-//        
-//        ServiceHttpURLConnectionExample serviceConnection = new ServiceHttpURLConnectionExample();
-//        
-//        String jsonTxt = serviceConnection.sendPost();
-//        request.setAttribute("jsonTxt", jsonTxt);
-//        RequestDispatcher rd = request.getRequestDispatcher("/inserir.jsp");
-//        rd.forward(request,response);
-//    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        String nome = request.getParameter("nome");
+        String telefone = request.getParameter("telefone");
+        String email = request.getParameter("email");
+        
+        Map<String, String> params = new HashMap<>();
+        params.put("nome", nome);
+        params.put("telefone", telefone);
+        params.put("email", email);
+        
+        ServiceHttpURLConnectionExample serviceConnection = new ServiceHttpURLConnectionExample();
+        serviceConnection.setUrl("http://127.0.0.1:8000/webservice/contatos/inserir");
+        serviceConnection.setUrlParameters(USER_AGENT);
+        
+        String jsonTxt = serviceConnection.sendPost();
+        request.setAttribute("jsonTxt", jsonTxt);
+        RequestDispatcher rd = request.getRequestDispatcher("/inserir.jsp");
+        rd.forward(request,response);
+    }
 }

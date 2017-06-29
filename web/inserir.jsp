@@ -15,10 +15,10 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
-        <link rel="stylesheet" href="regy/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/regy/assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="regy/assets/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="regy/assets/css/animate.css">
-        <link rel="stylesheet" href="regy/assets/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/regy/assets/css/style.css">
         <link rel="stylesheet" href="regy/assets/css/media-queries.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="r-form-1-bottom">
-                            <form role="form" action="contatos/inserir" method="post">
+                            <form role="form" action="${pageContext.request.contextPath}/contatos/inserir" method="post">
 
                             <div class="form-body">
                                 <div class="form-group form-md-line-input">
